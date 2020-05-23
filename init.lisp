@@ -92,3 +92,6 @@
 
 ;; End Session
 (load-module "end-session")
+
+;; TODO Fonts
+;; (load-module "ttf-fonts")
