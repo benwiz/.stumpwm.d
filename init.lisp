@@ -6,6 +6,10 @@
                      :style swank:*communication-style*
                      :dont-close t)
 
+;; TODO fonts (check modules ttf-fonts)
+;; TODO fuzzy finder for open windows
+;; TODO fuzzy finder for applications similar to counsel-linux-app
+
 ;; -----------------------------------------------------------
 ;; General Packages and other things I have run
 
@@ -91,12 +95,10 @@
         ("Frescobaldi" frescobaldi)
         ))
 
-;; Desktop Entry ;; TODO replace with one that does similar fuzzy searching to `counsel-linux-app` in emacs
+;; Desktop Entry
+;; TODO add ability to (fuzzy) search and submit pull request
 (load-module "desktop-entry")
 (desktop-entry:init-entry-list)
 
 ;; End Session
 (load-module "end-session")
-
-;; TODO Fonts
-;; (load-module "ttf-fonts")
