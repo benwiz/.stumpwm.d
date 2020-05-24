@@ -91,7 +91,7 @@
         ("Frescobaldi" frescobaldi)
         ))
 
-;; Desktop Entry
+;; Desktop Entry ;; TODO replace with one that does similar fuzzy searching to `counsel-linux-app` in emacs
 (load-module "desktop-entry")
 (desktop-entry:init-entry-list)
 
