@@ -25,7 +25,7 @@
 (define-key *root-map* (kbd "i") "firefox") ;; run or raise
 (define-key *root-map* (kbd "I") "exec firefox") ;; run
 (define-key *top-map* (kbd "M-`") "show-menu")
-(define-key *root-map* (kbd "m") "show-desktop-menu")
+(define-key *root-map* (kbd "M-~") "show-desktop-menu")
 
 ;; ------------------------------------------------------------
 ;; Other configs
@@ -77,12 +77,17 @@
   "run firefox"
   (run-or-raise "firefox" '(:class "Firefox")))
 
+(defcommand spotify () ()
+  "run spotify"
+  (run-or-raise "spotify" '(:class "Spotify")))
+
 (defcommand frescobaldi () ()
   "run frescobaldi"
   (run-or-raise "frescobaldi" '(:class "Frescobaldi")))
 
 (setq app-menu:*app-menu* ;; Can create submenus but I don't think I need it
       '(("Firefox" firefox)
+        ("Spotify" spotify)
         ("Frescobaldi" frescobaldi)
         ))
 
