@@ -28,6 +28,8 @@
 
 (define-key *root-map* (kbd "i") "firefox") ;; run or raise
 (define-key *root-map* (kbd "I") "exec firefox") ;; run
+(define-key *root-map* (kbd "u") "mode-line")
+
 (define-key *top-map* (kbd "M-`") "show-menu")
 (define-key *top-map* (kbd "M-SPC") "dmenu")
 
@@ -42,8 +44,10 @@
 (setf *input-window-gravity* :center)
 
 ;; Modeline (not yet convinced of its value)
-;; (enable-mode-line (current-screen) (current-head) t (list "%w |" '(:eval (run-shell-command "date" t))))
-;; (toggle-mode-line (current-screen) (current-head))
+(enable-mode-line (current-screen) (current-head) t)
+(setf *screen-mode-line-format* (list "%d" " | " "%v"))
+(defcommand mode-line () ()
+  (toggle-mode-line (current-screen) (current-head)))
 
 ;; TODO fonts
 
