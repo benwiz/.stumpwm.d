@@ -16,6 +16,7 @@
 ;; (ql:quickload "clx")
 ;; (ql:quickload "cl-ppcre")
 ;; (ql:quickload "alexandria")
+;; (ql:quickload "xembed") ;; for stumptray
 
 ;; git clone https://github.com/stumpwm/stumpwm-contrib ~/.stumpwm.d/modules
 
@@ -43,29 +44,52 @@
 (setf *message-window-gravity* :top-right)
 (setf *input-window-gravity* :center)
 
-;; Modeline (not yet convinced of its value)
+;; -----------------------------------------------------------
+;; Modeline
+
+;; (load-module "battery-portable")
+;; (load-module "cpu")
+;; (load-module "mem")
+;; (load-module "wifi")
+;; (load-module "stumptray")
+;; (stumptray::stumptray)
+
+;; Enable
 (enable-mode-line (current-screen) (current-head) t)
-(setf *screen-mode-line-format* (list "%d" " | " "%v"))
+
+;; Format
+(setf *screen-mode-line-format* (list "%v"
+                                      "^>"
+                                      ;; "%C"
+                                      ;; "%M"
+                                      ;; "%I"
+                                      ;; "%B"
+                                      "%d"))
+(setf *mode-line-border-width* 0)
+(setf *mode-line-background-color* "#000809")
+(setf *mode-line-foreground-color* "#D0D0D0")
+
+;; Toggle
 (defcommand mode-line () ()
   (toggle-mode-line (current-screen) (current-head)))
 
-;; TODO fonts
-
 ;; ------------------------------------------------------------
-;; Custom commands
+;; Custom commands (not related to modules)
 
 ;; Edit this file
 (defcommand editrc () ()
   (run-shell-command "emacs ~/.stumpwmrc"))
 
 ;; demnu
-;; TODO I can probably build a menu https://stumpwm.github.io/git/stumpwm-git_13.html#Menus-2
 (defcommand dmenu () ()
   (run-shell-command "dmenu_run"))
 
 ;; ------------------------------------------------------------
 ;; Modules
 (add-to-load-path "/home/benwiz/.stumpwm.d/modules")
+
+;; TODO Fonts
+;; (load-module "ttf-fonts")
 
 ;; App Menu
 (load-module "app-menu")
