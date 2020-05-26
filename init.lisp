@@ -29,7 +29,7 @@
 (define-key *root-map* (kbd "i") "firefox") ;; run or raise
 (define-key *root-map* (kbd "I") "exec firefox") ;; run
 (define-key *top-map* (kbd "M-`") "show-menu")
-(define-key *root-map* (kbd "M-~") "show-desktop-menu")
+(define-key *top-map* (kbd "M-SPC") "dmenu")
 
 ;; ------------------------------------------------------------
 ;; Other configs
@@ -54,21 +54,10 @@
 (defcommand editrc () ()
   (run-shell-command "emacs ~/.stumpwmrc"))
 
-;; TODO delete this after testing `end-session` cmd
-;; ;; Shutdown / Reboot
-;; (defun shutdown-fn (type passwd)
-;;   "Calls the shutdown command with the specified halting operation and the password"
-;;   (let* ((shutdown-type (case type
-;;                           (:halt "-h")
-;;                           (:reboot "-r")))
-;;          (command (concatenate 'string "echo " passwd " | sudo -S shutdown " shutdown-type " now")))
-;;     (run-shell-command command)))
-
-;; (defcommand shutdown (passwd) ((:string "please enter your password: "))
-;;   (shutdown-fn :halt passwd))
-
-;; (defcommand reboot (passwd) ((:string "please enter your password: "))
-;;   (shutdown-fn :reboot passwd))
+;; demnu
+;; TODO I can probably build a menu https://stumpwm.github.io/git/stumpwm-git_13.html#Menus-2
+(defcommand dmenu () ()
+  (run-shell-command "dmenu_run"))
 
 ;; ------------------------------------------------------------
 ;; Modules
