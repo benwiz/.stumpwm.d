@@ -68,25 +68,18 @@
   (toggle-mode-line (current-screen) (current-head)))
 
 ;; ------------------------------------------------------------
-;; Custom commands (not related to modules)
+;; Custom commands for built-in or cli tooling (not modules)
 
-;; Edit this file
 (defcommand editrc () ()
   (run-shell-command "emacs ~/.stumpwmrc"))
 
-;; demnu
 (defcommand dmenu () ()
   (run-shell-command "dmenu_run"))
 
-;; ------------------------------------------------------------
-;; Modules
-(add-to-load-path "/home/benwiz/.stumpwm.d/modules")
-
-;; TODO Fonts
-;; (load-module "ttf-fonts")
-
-;; App Menu
-(load-module "app-menu")
+;; FIXME not raising
+(defcommand term () ()
+  "run x-terminal-emulator"
+  (run-or-raise "x-terminal-emulator" '(:class "Gnome Terminal")))
 
 (defcommand firefox () ()
   "run firefox"
@@ -99,6 +92,16 @@
 (defcommand frescobaldi () ()
   "run frescobaldi"
   (run-or-raise "frescobaldi" '(:class "Frescobaldi")))
+
+;; ------------------------------------------------------------
+;; Modules
+(add-to-load-path "/home/benwiz/.stumpwm.d/modules")
+
+;; TODO Fonts
+;; (load-module "ttf-fonts")
+
+;; App Menu
+(load-module "app-menu")
 
 (setq app-menu:*app-menu* ;; Can create submenus but I don't think I need it
       '(("Firefox" firefox)
