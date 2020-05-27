@@ -13,6 +13,7 @@
 ;; -----------------------------------------------------------
 ;; General Packages and other things I have run
 
+;; (ql:quickload "swank")
 ;; (ql:quickload "clx")
 ;; (ql:quickload "cl-ppcre")
 ;; (ql:quickload "alexandria")
@@ -111,11 +112,6 @@
         ("Spotify" spotify)
         ("Frescobaldi" frescobaldi)
         ))
-
-;; Desktop Entry
-;; TODO add ability to (fuzzy) search and submit pull request
-(load-module "desktop-entry")
-(desktop-entry:init-entry-list)
 
 ;; End Session
 (load-module "end-session")
