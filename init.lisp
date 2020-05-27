@@ -11,7 +11,7 @@
 ;; TODO fuzzy finder for applications similar to counsel-linux-app
 
 ;; -----------------------------------------------------------
-;; General Packages and other things I have run
+;; Installations
 
 ;; (ql:quickload "swank")
 ;; (ql:quickload "clx")
@@ -20,10 +20,7 @@
 ;; (ql:quickload "xembed") ;; for stumptray
 
 ;; git clone https://github.com/stumpwm/stumpwm-contrib ~/.stumpwm.d/modules
-
-;; desktop-entry
-;; (ql:quickload :py-configparser)
-;; (ql:quickload :FiveAM)
+;; sudo apt install -y dmenu
 
 ;; ------------------------------------------------------------
 ;; Key Bindings
