@@ -6,10 +6,6 @@
                      :style swank:*communication-style*
                      :dont-close t)
 
-;; TODO fonts (check modules ttf-fonts)
-;; TODO fuzzy finder for open windows
-;; TODO fuzzy finder for applications similar to counsel-linux-app
-
 ;; -----------------------------------------------------------
 ;; Installations
 
