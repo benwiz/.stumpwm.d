@@ -6,6 +6,8 @@
                      :style swank:*communication-style*
                      :dont-close t)
 
+;; TODO dump frames on quit and load on start, maybe ask in both cases or auto do it after 20 seconds
+
 ;; -----------------------------------------------------------
 ;; Installations
 
@@ -21,9 +23,15 @@
 ;; ------------------------------------------------------------
 ;; Key Bindings
 
-(define-key *root-map* (kbd "i") "firefox") ;; run or raise
-(define-key *root-map* (kbd "I") "exec firefox") ;; run
+(define-key *root-map* (kbd "i") "firefox")
+(define-key *root-map* (kbd "I") "exec firefox")
 (define-key *root-map* (kbd "u") "mode-line")
+(define-key *root-map* (kbd "b") "windowlist")
+(define-key *root-map* (kbd "C-b") "windowlist")
+(define-key *root-map* (kbd "b") "windowlist")
+(define-key *root-map* (kbd "c") "term")
+(define-key *root-map* (kbd "C-c") "term")
+(define-key *root-map* (kbd "\C") "exec gnome-terminal")
 
 (define-key *top-map* (kbd "M-`") "show-menu")
 (define-key *top-map* (kbd "M-SPC") "dmenu")
@@ -35,7 +43,7 @@
 (setf *mouse-focus-policy* :click)
 
 ;; Message Box
-(setf *message-window-gravity* :top-right)
+(setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
 
 ;; -----------------------------------------------------------
@@ -76,10 +84,9 @@
 (defcommand dmenu () ()
   (run-shell-command "dmenu_run"))
 
-;; FIXME not raising
 (defcommand term () ()
-  "run x-terminal-emulator"
-  (run-or-raise "x-terminal-emulator" '(:class "Gnome Terminal")))
+  "run gnome-terminal"
+  (run-or-raise "gnome-terminal" '(:class "Gnome-terminal")))
 
 (defcommand firefox () ()
   "run firefox"
