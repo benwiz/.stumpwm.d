@@ -7,6 +7,11 @@
                      :dont-close t)
 
 ;; TODO dump frames on quit and load on start, maybe ask in both cases or auto do it after 20 seconds
+;; TODO run-or-raise-or-pull fn
+;; - find window by class (maybe use echo-windows but probably not)
+;; - check if window is visible using `window-visible-p`
+;; - if visible, raise. Else, pull.
+;; TODO raise-or-pull-from-windowlist
 
 ;; -----------------------------------------------------------
 ;; Installations
@@ -27,9 +32,9 @@
 (define-key *root-map* (kbd "i") "firefox")
 (define-key *root-map* (kbd "I") "exec firefox")
 (define-key *root-map* (kbd "u") "mode-line")
-(define-key *root-map* (kbd "b") "windowlist")
-(define-key *root-map* (kbd "C-b") "windowlist")
-(define-key *root-map* (kbd "b") "windowlist")
+(define-key *root-map* (kbd "b") "pull-from-windowlist")
+(define-key *root-map* (kbd "C-b") "pull-from-windowlist")
+(define-key *root-map* (kbd "b") "pull-from-windowlist")
 (define-key *root-map* (kbd "c") "term")
 (define-key *root-map* (kbd "C-c") "term")
 (define-key *root-map* (kbd "\C") "exec gnome-terminal")
@@ -90,19 +95,19 @@
 
 (defcommand term () ()
   "run gnome-terminal"
-  (run-or-raise "gnome-terminal" '(:class "Gnome-terminal")))
+  (run-or-pull "gnome-terminal" '(:class "Gnome-terminal")))
 
 (defcommand firefox () ()
   "run firefox"
-  (run-or-raise "firefox" '(:class "Firefox")))
+  (run-or-pull "firefox" '(:class "Firefox")))
 
 (defcommand spotify () ()
   "run spotify"
-  (run-or-raise "spotify" '(:class "Spotify")))
+  (run-or-pull "spotify" '(:class "Spotify")))
 
 (defcommand frescobaldi () ()
   "run frescobaldi"
-  (run-or-raise "frescobaldi" '(:class "Frescobaldi")))
+  (run-or-pull "frescobaldi" '(:class "Frescobaldi")))
 
 (defcommand gtk-theme () ()
   "toggle theme between dark and light"
