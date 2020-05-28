@@ -16,6 +16,7 @@
 ;; (ql:quickload "cl-ppcre")
 ;; (ql:quickload "alexandria")
 ;; (ql:quickload "xembed") ;; for stumptray
+;; (ql:quickload "quicklisp-slime-helper")
 
 ;; git clone https://github.com/stumpwm/stumpwm-contrib ~/.stumpwm.d/modules
 ;; sudo apt install -y dmenu
