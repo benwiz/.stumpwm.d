@@ -32,6 +32,7 @@
 (define-key *root-map* (kbd "c") "term")
 (define-key *root-map* (kbd "C-c") "term")
 (define-key *root-map* (kbd "\C") "exec gnome-terminal")
+(define-key *root-map* (kbd "F10") "gtk-theme")
 
 (define-key *top-map* (kbd "M-`") "show-menu")
 (define-key *top-map* (kbd "M-SPC") "dmenu")
@@ -79,9 +80,11 @@
 ;; Custom commands for built-in or cli tooling (not modules)
 
 (defcommand editrc () ()
+  "edit this file"
   (run-shell-command "emacs ~/.stumpwmrc"))
 
 (defcommand dmenu () ()
+  "run dmenu"
   (run-shell-command "dmenu_run"))
 
 (defcommand term () ()
@@ -99,6 +102,14 @@
 (defcommand frescobaldi () ()
   "run frescobaldi"
   (run-or-raise "frescobaldi" '(:class "Frescobaldi")))
+
+(defcommand gtk-theme () ()
+  "toggle theme between dark and light"
+  (if (string= (run-shell-command "gsettings get org.gnome.desktop.interface gtk-theme" t)
+               "'Adwaita-dark'
+") ;; yes, this new line is necessary
+      (run-shell-command "gsettings set org.gnome.desktop.interface gtk-theme Adwaita")
+      (run-shell-command "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark")))
 
 ;; ------------------------------------------------------------
 ;; Modules
