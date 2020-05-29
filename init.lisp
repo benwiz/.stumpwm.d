@@ -12,7 +12,8 @@
 ;; - check if window is visible using `window-visible-p`
 ;; - if visible, raise. Else, pull.
 ;; TODO raise-or-pull-from-windowlist
-;; TODO list class in modeline or something shorter than what it currently does
+
+;; TODO figure out how groups work
 
 ;; -----------------------------------------------------------
 ;; Installations
@@ -83,9 +84,12 @@
                                       ;; "%B"
                                       "%d"))
 (setf *mode-line-border-width* 0)
-(setf *mode-line-background-color* "#000809")
-(setf *mode-line-foreground-color* "#D0D0D0")
+(setf *mode-line-background-color* "#101010")
+(setf *mode-line-foreground-color* "#00A0A0")
 (setf *mode-line-timeout* 10)
+(setf *hidden-window-color* "^7")
+(setf *window-format* " (%n) %16c")
+
 
 ;; Enable
 (enable-mode-line (current-screen) (current-head) t)
