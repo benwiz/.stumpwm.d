@@ -26,6 +26,10 @@
 ;; git clone https://github.com/stumpwm/stumpwm-contrib ~/.stumpwm.d/modules
 ;; sudo apt install -y dmenu
 
+;; git clone git@github.com:l04m33/clx-truetype.git
+;; (ql:quickload "clx-truetype")
+;; (clx-truetype:cache-fonts)
+
 ;; ------------------------------------------------------------
 ;; Key Bindings
 
@@ -69,9 +73,6 @@
 ;; (load-module "stumptray")
 ;; (stumptray::stumptray)
 
-;; Enable
-(enable-mode-line (current-screen) (current-head) t)
-
 ;; Format
 (setf *screen-mode-line-format* (list "%v"
                                       "^>"
@@ -83,6 +84,10 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* "#000809")
 (setf *mode-line-foreground-color* "#D0D0D0")
+(setf *mode-line-timeout* 10)
+
+;; Enable
+(enable-mode-line (current-screen) (current-head) t)
 
 ;; Toggle
 (defcommand mode-line () ()
@@ -127,8 +132,13 @@
 ;; Modules
 (add-to-load-path "/home/benwiz/.stumpwm.d/modules")
 
-;; TODO Fonts
-;; (load-module "ttf-fonts")
+;; Fonts
+;; (load-module "ttf-fonts") ;; idk why load-module didn't work
+(asdf:make "ttf-fonts")
+(set-font (make-instance 'xft:font
+                         :family "DejaVu Sans Mono"
+                         :subfamily "Book"
+                         :size 14))
 
 ;; App Menu
 (load-module "app-menu")
