@@ -12,6 +12,7 @@
 ;; - check if window is visible using `window-visible-p`
 ;; - if visible, raise. Else, pull.
 ;; TODO raise-or-pull-from-windowlist
+;; TODO list class in modeline or something shorter than what it currently does
 
 ;; -----------------------------------------------------------
 ;; Installations
