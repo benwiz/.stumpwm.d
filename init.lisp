@@ -29,6 +29,11 @@
 ;; ------------------------------------------------------------
 ;; Key Bindings
 
+(define-key *root-map* (kbd "0") "remove")
+(define-key *root-map* (kbd "1") "only")
+(define-key *root-map* (kbd "2") "vsplit")
+(define-key *root-map* (kbd "3") "hsplit")
+
 (define-key *root-map* (kbd "i") "firefox")
 (define-key *root-map* (kbd "I") "exec firefox")
 (define-key *root-map* (kbd "u") "mode-line")
