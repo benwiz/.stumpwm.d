@@ -44,6 +44,7 @@
 (define-key *root-map* (kbd "C-c") "term")
 (define-key *root-map* (kbd "\C") "exec gnome-terminal")
 (define-key *root-map* (kbd "F10") "gtk-theme")
+(define-key *root-map* (kbd "F12") "end-session")
 
 (define-key *top-map* (kbd "M-`") "show-menu")
 (define-key *top-map* (kbd "M-SPC") "dmenu")
