@@ -66,6 +66,11 @@
 ;; Message Box
 (setf *message-window-gravity* :center)
 (setf *input-window-gravity* :center)
+(set-bg-color "#111111")
+(set-fg-color "#00EEEE")
+(set-border-color "#005555")
+(setf *message-window-padding* 16)
+(setf *message-window-y-padding* 50) ;; FIXME this isn't working. Would like to set to *message-window-padding*
 
 ;; -----------------------------------------------------------
 ;; Modeline
