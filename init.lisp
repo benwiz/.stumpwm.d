@@ -40,6 +40,8 @@
 (define-key *root-map* (kbd "2") "vsplit")
 (define-key *root-map* (kbd "3") "hsplit")
 
+(define-key *root-map* (kbd "e") "emacs")
+(define-key *root-map* (kbd "E") "exec emacs")
 (define-key *root-map* (kbd "i") "firefox")
 (define-key *root-map* (kbd "I") "exec firefox")
 (define-key *root-map* (kbd "u") "mode-line")
@@ -108,6 +110,10 @@
 (defcommand dmenu () ()
   "run dmenu"
   (run-shell-command "dmenu_run"))
+
+(defcommand emacs () ()
+  "run emacs"
+  (run-or-pull "emacs" '(:class "Emacs")))
 
 (defcommand term () ()
   "run gnome-terminal"
