@@ -12,7 +12,7 @@
 ;; - check if window is visible using `window-visible-p`
 ;; - if visible, raise. Else, pull.
 ;; TODO raise-or-pull-from-windowlist
-
+;; TODO always hide Gnome-flashback from list of windows
 ;; TODO figure out how groups work
 
 ;; -----------------------------------------------------------
