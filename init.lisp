@@ -75,10 +75,10 @@
 ;; -----------------------------------------------------------
 ;; Modeline
 
-;; (load-module "battery-portable")
+(load-module "battery-portable")
 ;; (load-module "cpu")
 ;; (load-module "mem")
-;; (load-module "wifi")
+(load-module "wifi")
 ;; (load-module "stumptray")
 ;; (stumptray::stumptray)
 
@@ -87,13 +87,13 @@
                                       "^>"
                                       ;; "%C"
                                       ;; "%M"
-                                      ;; "%I"
-                                      ;; "%B"
-                                      "%d"))
+                                      " %I |"
+                                      " %B |"
+                                      " %d"))
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* "#101010")
 (setf *mode-line-foreground-color* "#00A0A0")
-(setf *mode-line-timeout* 10)
+(setf *mode-line-timeout* 2)
 (setf *hidden-window-color* "^7")
 (setf *window-format* " (%n) %16c")
 
@@ -150,11 +150,11 @@
 
 ;; Fonts
 ;; (load-module "ttf-fonts") ;; idk why load-module didn't work
-(asdf:make "ttf-fonts")
-(set-font (make-instance 'xft:font
-                         :family "DejaVu Sans Mono"
-                         :subfamily "Book"
-                         :size 14))
+;; (asdf:make "ttf-fonts")
+;; (set-font (make-instance 'xft:font
+;;                          :family "DejaVu Sans Mono"
+;;                          :subfamily "Book"
+;;                          :size 14))
 
 ;; App Menu
 (load-module "app-menu")
