@@ -12,7 +12,7 @@
 ;; - check if window is visible using `window-visible-p`
 ;; - if visible, raise. Else, pull.
 ;; TODO raise-or-pull-from-windowlist
-;; TODO always hide Gnome-flashback from list of windows
+;; TODO always hide Gnome-flashback from list of windows, it shows sometimes
 ;; TODO figure out how groups work
 
 ;; -----------------------------------------------------------
@@ -122,7 +122,11 @@
 
 (defcommand term () ()
   "run gnome-terminal"
-  (run-or-pull "gnome-terminal" '(:class "Gnome-terminal")))
+  (run-or-pull "gnome-terminal" '(:class "Terminal")))
+
+(defcommand system-monitor () ()
+  "run gnome-system-monitor"
+  (run-or-pull "gnome-system-monitor" '(:class "System Monitor")))
 
 (defcommand firefox () ()
   "run firefox"
@@ -160,10 +164,10 @@
 (load-module "app-menu")
 
 (setq app-menu:*app-menu* ;; Can create submenus but I don't think I need it
-      '(("Firefox" firefox)
+      '(("System Monitor" system-monitor)
+        ("Firefox" firefox)
         ("Spotify" spotify)
-        ("Frescobaldi" frescobaldi)
-        ))
+        ("Frescobaldi" frescobaldi)))
 
 ;; End Session
 (load-module "end-session")
