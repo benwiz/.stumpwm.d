@@ -52,6 +52,7 @@
 (define-key *root-map* (kbd "c") "term")
 (define-key *root-map* (kbd "C-c") "term")
 (define-key *root-map* (kbd "\C") "exec gnome-terminal")
+(define-key *root-map* (kbd "m") "system-monitor")
 (define-key *root-map* (kbd "s") "spotify")
 (define-key *root-map* (kbd "F10") "gtk-theme")
 (define-key *root-map* (kbd "F12") "end-session")
@@ -97,8 +98,7 @@
 (setf *mode-line-foreground-color* "#00A0A0")
 (setf *mode-line-timeout* 2)
 (setf *hidden-window-color* "^7")
-(setf *window-format* " (%n) %16c")
-
+(setf *window-format* " %24c ") ;; " (%n) %16c"
 
 ;; Enable
 (enable-mode-line (current-screen) (current-head) t)
