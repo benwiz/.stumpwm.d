@@ -14,6 +14,7 @@
 ;; TODO raise-or-pull-from-windowlist
 ;; TODO always hide Gnome-flashback from list of windows, it shows sometimes
 ;; TODO figure out how groups work
+;; TODO add pomo counter to mode line (add pull request to the Pomo project)
 
 ;; -----------------------------------------------------------
 ;; Installations
@@ -22,8 +23,8 @@
 ;; (ql:quickload "clx")
 ;; (ql:quickload "cl-ppcre")
 ;; (ql:quickload "alexandria")
-;; (ql:quickload "xembed") ;; for stumptray
 ;; (ql:quickload "quicklisp-slime-helper")
+;; (ql:quickload "trivial-timers") ;; for pomo
 
 ;; git clone https://github.com/stumpwm/stumpwm-contrib ~/.stumpwm.d/modules
 ;; sudo apt install -y dmenu
@@ -51,6 +52,7 @@
 (define-key *root-map* (kbd "c") "term")
 (define-key *root-map* (kbd "C-c") "term")
 (define-key *root-map* (kbd "\C") "exec gnome-terminal")
+(define-key *root-map* (kbd "s") "spotify")
 (define-key *root-map* (kbd "F10") "gtk-theme")
 (define-key *root-map* (kbd "F12") "end-session")
 
@@ -122,11 +124,11 @@
 
 (defcommand term () ()
   "run gnome-terminal"
-  (run-or-pull "gnome-terminal" '(:class "Terminal")))
+  (run-or-pull "gnome-terminal" '(:class "Gnome-terminal")))
 
 (defcommand system-monitor () ()
   "run gnome-system-monitor"
-  (run-or-pull "gnome-system-monitor" '(:class "System Monitor")))
+  (run-or-pull "gnome-system-monitor" '(:class "Gnome-system-monitor")))
 
 (defcommand firefox () ()
   "run firefox"
@@ -171,3 +173,10 @@
 
 ;; End Session
 (load-module "end-session")
+
+;; Pomodoro
+(load-module "pomo")
+(setf pomo:*short-break* 5)
+(setf pomo:*long-break* 15)
+(setf pomo:*work-period* 25)
+(pomo-start) ;; start on launch

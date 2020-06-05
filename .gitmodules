@@ -1,6 +1,6 @@
 [submodule "stumpwm-contrib"]
-	path = modules
+	path = modules/stumpwm-contrib
 	url = git@github.com:stumpwm/stumpwm-contrib.git
-[submodule "modules"]
-	path = modules
-	url = git@github.com:stumpwm/stumpwm-contrib.git
+[submodule "Pomo"]
+	path = modules/Pomo
+	url = git@github.com:Payphone/Pomo.git
