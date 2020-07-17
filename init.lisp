@@ -174,9 +174,9 @@
 ;; End Session
 (load-module "end-session")
 
-;; Pomodoro
-(load-module "pomo")
-(setf pomo:*short-break* 5)
-(setf pomo:*long-break* 15)
-(setf pomo:*work-period* 25)
-(pomo-start) ;; start on launch
+;; ;; Pomodoro
+;; (load-module "pomo")
+;; (setf pomo:*short-break* 5)
+;; (setf pomo:*long-break* 15)
+;; (setf pomo:*work-period* 25)
+;; (pomo-start) ;; start on launch
