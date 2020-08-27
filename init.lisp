@@ -96,7 +96,7 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-background-color* "#101010")
 (setf *mode-line-foreground-color* "#00A0A0")
-(setf *mode-line-timeout* 2)
+(setf *mode-line-timeout* 1)
 (setf *hidden-window-color* "^7")
 (setf *window-format* " %24c ") ;; " (%n) %16c"
 
